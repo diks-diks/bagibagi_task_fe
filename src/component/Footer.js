@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="w-100 position-fixed bottom-0" style={{ height: 54 }}>
+    <footer className="w-100 position-absolute bottom-0" style={{ height: 54 }}>
       <div
         xs={11}
         style={{ width: "95%" }}
@@ -14,17 +14,12 @@ const Footer = () => {
         </p>
       </div>
       <div
-        className="position-fixed end-0 bottom-0"
+        className="position-absolute end-0 bottom-0"
         style={{
           width: "7%",
-          marginBottom: "-5px",
         }}
       >
-        <img
-          src="./img/leaf-footer.png"
-          alt="leaf footer"
-          className="w-100"
-        />
+        <img src="./img/leaf-footer.png" alt="leaf footer" className="w-100" />
       </div>
     </footer>
   );

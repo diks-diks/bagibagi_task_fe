@@ -5,7 +5,7 @@ const NavBar = () => {
     <Navbar
       bg="dark"
       variant="dark"
-      className="position-fixed top-0 w-100 bg-transparent"
+      className="position-absolute top-0 w-100 bg-transparent"
       style={{ height: 100, zIndex: 2 }}
     >
       <Container>
