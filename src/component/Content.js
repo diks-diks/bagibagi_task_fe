@@ -1,6 +1,8 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Content = () => {
+  const navigate = useNavigate();
   return (
     <main
       style={{ backgroundColor: "#E5E5E5", marginBottom: 54 }}
@@ -103,7 +105,20 @@ const Content = () => {
                 </div>
               </div>
               <Card.Body className="p-0">
-                <Card.Title>6D/4N Fun Tassie Vacation ...</Card.Title>
+                {/* <Link
+                  to={"/detail"}
+                  style={{ textDecoration: "none" }}
+                  className="text-black"
+                > */}
+                <Card.Title
+                  onClick={() => {
+                    navigate("/detail");
+                  }}
+                  style={{ cursor: "pointer" }}
+                >
+                  6D/4N Fun Tassie Vacation ...
+                </Card.Title>
+                {/* </Link> */}
                 <div className="d-flex justify-content-between">
                   <p className="text-warning mb-0 fw-bolder">Rp 20.000,-</p>
                   <p className="text-secondary mb-0">Indonesia</p>
@@ -123,11 +138,24 @@ const Content = () => {
                   style={{ width: 50, height: 30, top: 15 }}
                   className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
                 >
-                  <p className="m-0 fw-bolder">11/15</p>
+                  <p className="m-0 fw-bolder">12/15</p>
                 </div>
               </div>
               <Card.Body className="p-0">
-                <Card.Title>6D/4N Fun Tassie Vacation ...</Card.Title>
+                {/* <Link
+                  to={"/detail"}
+                  style={{ textDecoration: "none" }}
+                  className="text-black"
+                > */}
+                <Card.Title
+                  onClick={() => {
+                    navigate("/detail");
+                  }}
+                  style={{ cursor: "pointer" }}
+                >
+                  6D/4N Fun Tassie Vacation ...
+                </Card.Title>
+                {/* </Link> */}
                 <div className="d-flex justify-content-between">
                   <p className="text-warning mb-0 fw-bolder">Rp 20.000,-</p>
                   <p className="text-secondary mb-0">Indonesia</p>
@@ -147,11 +175,24 @@ const Content = () => {
                   style={{ width: 50, height: 30, top: 15 }}
                   className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
                 >
-                  <p className="m-0 fw-bolder">14/15</p>
+                  <p className="m-0 fw-bolder">12/15</p>
                 </div>
               </div>
               <Card.Body className="p-0">
-                <Card.Title>6D/4N Fun Tassie Vacation ...</Card.Title>
+                {/* <Link
+                  to={"/detail"}
+                  style={{ textDecoration: "none" }}
+                  className="text-black"
+                > */}
+                <Card.Title
+                  onClick={() => {
+                    navigate("/detail");
+                  }}
+                  style={{ cursor: "pointer" }}
+                >
+                  6D/4N Fun Tassie Vacation ...
+                </Card.Title>
+                {/* </Link> */}
                 <div className="d-flex justify-content-between">
                   <p className="text-warning mb-0 fw-bolder">Rp 20.000,-</p>
                   <p className="text-secondary mb-0">Indonesia</p>
@@ -171,11 +212,24 @@ const Content = () => {
                   style={{ width: 50, height: 30, top: 15 }}
                   className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
                 >
-                  <p className="m-0 fw-bolder">10/15</p>
+                  <p className="m-0 fw-bolder">12/15</p>
                 </div>
               </div>
               <Card.Body className="p-0">
-                <Card.Title>6D/4N Fun Tassie Vacation ...</Card.Title>
+                {/* <Link
+                  to={"/detail"}
+                  style={{ textDecoration: "none" }}
+                  className="text-black"
+                > */}
+                <Card.Title
+                  onClick={() => {
+                    navigate("/detail");
+                  }}
+                  style={{ cursor: "pointer" }}
+                >
+                  6D/4N Fun Tassie Vacation ...
+                </Card.Title>
+                {/* </Link> */}
                 <div className="d-flex justify-content-between">
                   <p className="text-warning mb-0 fw-bolder">Rp 20.000,-</p>
                   <p className="text-secondary mb-0">Indonesia</p>
@@ -195,11 +249,24 @@ const Content = () => {
                   style={{ width: 50, height: 30, top: 15 }}
                   className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
                 >
-                  <p className="m-0 fw-bolder">13/15</p>
+                  <p className="m-0 fw-bolder">12/15</p>
                 </div>
               </div>
               <Card.Body className="p-0">
-                <Card.Title>6D/4N Fun Tassie Vacation ...</Card.Title>
+                {/* <Link
+                  to={"/detail"}
+                  style={{ textDecoration: "none" }}
+                  className="text-black"
+                > */}
+                <Card.Title
+                  onClick={() => {
+                    navigate("/detail");
+                  }}
+                  style={{ cursor: "pointer" }}
+                >
+                  6D/4N Fun Tassie Vacation ...
+                </Card.Title>
+                {/* </Link> */}
                 <div className="d-flex justify-content-between">
                   <p className="text-warning mb-0 fw-bolder">Rp 20.000,-</p>
                   <p className="text-secondary mb-0">Indonesia</p>
