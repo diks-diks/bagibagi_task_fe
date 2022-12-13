@@ -77,11 +77,19 @@ const Content = () => {
         <Row>
           <Col lg={4} className="p-3">
             <Card className="d-flex flex-column justify-content-center p-3">
-              <Card.Img
-                variant="top"
-                src="./img/card.png"
-                className="img-fluid"
-              />
+              <div id="img-group" className="position-relative">
+                <Card.Img
+                  variant="top"
+                  src="./img/card.png"
+                  className="img-fluid"
+                />
+                <div
+                  style={{ width: 50, height: 30, top: 15 }}
+                  className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
+                >
+                  <p className="m-0">12/15</p>
+                </div>
+              </div>
               <Card.Body className="p-0">
                 <Card.Title>6D/4N Fun Tassie Vacation ...</Card.Title>
                 <div className="d-flex justify-content-between">
@@ -93,11 +101,19 @@ const Content = () => {
           </Col>
           <Col lg={4} className="p-3">
             <Card className="d-flex flex-column justify-content-center p-3">
-              <Card.Img
-                variant="top"
-                src="./img/card.png"
-                className="img-fluid"
-              />
+              <div id="img-group" className="position-relative">
+                <Card.Img
+                  variant="top"
+                  src="./img/card.png"
+                  className="img-fluid"
+                />
+                <div
+                  style={{ width: 50, height: 30, top: 15 }}
+                  className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
+                >
+                  <p className="m-0">11/15</p>
+                </div>
+              </div>
               <Card.Body className="p-0">
                 <Card.Title>6D/4N Fun Tassie Vacation ...</Card.Title>
                 <div className="d-flex justify-content-between">
@@ -109,11 +125,19 @@ const Content = () => {
           </Col>
           <Col lg={4} className="p-3">
             <Card className="d-flex flex-column justify-content-center p-3">
-              <Card.Img
-                variant="top"
-                src="./img/card.png"
-                className="img-fluid"
-              />
+              <div id="img-group" className="position-relative">
+                <Card.Img
+                  variant="top"
+                  src="./img/card.png"
+                  className="img-fluid"
+                />
+                <div
+                  style={{ width: 50, height: 30, top: 15 }}
+                  className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
+                >
+                  <p className="m-0">14/15</p>
+                </div>
+              </div>
               <Card.Body className="p-0">
                 <Card.Title>6D/4N Fun Tassie Vacation ...</Card.Title>
                 <div className="d-flex justify-content-between">
@@ -125,11 +149,19 @@ const Content = () => {
           </Col>
           <Col lg={4} className="p-3">
             <Card className="d-flex flex-column justify-content-center p-3">
-              <Card.Img
-                variant="top"
-                src="./img/card.png"
-                className="img-fluid"
-              />
+              <div id="img-group" className="position-relative">
+                <Card.Img
+                  variant="top"
+                  src="./img/card.png"
+                  className="img-fluid"
+                />
+                <div
+                  style={{ width: 50, height: 30, top: 15 }}
+                  className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
+                >
+                  <p className="m-0">10/15</p>
+                </div>
+              </div>
               <Card.Body className="p-0">
                 <Card.Title>6D/4N Fun Tassie Vacation ...</Card.Title>
                 <div className="d-flex justify-content-between">
@@ -141,11 +173,19 @@ const Content = () => {
           </Col>
           <Col lg={4} className="p-3">
             <Card className="d-flex flex-column justify-content-center p-3">
-              <Card.Img
-                variant="top"
-                src="./img/card.png"
-                className="img-fluid"
-              />
+              <div id="img-group" className="position-relative">
+                <Card.Img
+                  variant="top"
+                  src="./img/card.png"
+                  className="img-fluid"
+                />
+                <div
+                  style={{ width: 50, height: 30, top: 15 }}
+                  className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
+                >
+                  <p className="m-0">13/15</p>
+                </div>
+              </div>
               <Card.Body className="p-0">
                 <Card.Title>6D/4N Fun Tassie Vacation ...</Card.Title>
                 <div className="d-flex justify-content-between">
