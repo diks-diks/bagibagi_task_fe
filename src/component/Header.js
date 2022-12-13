@@ -8,6 +8,7 @@ const Header = () => {
         backgroundImage: `url(${"./img/bg-header.png"})`,
         backgroundSize: "cover",
         position: "relative",
+        zIndex:1
       }}
       className="w-100"
     >

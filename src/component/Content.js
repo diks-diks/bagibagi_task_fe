@@ -4,11 +4,23 @@ const Content = () => {
   return (
     <main
       style={{ backgroundColor: "#E5E5E5", marginBottom: 54 }}
-      className="py-3"
+      className="py-3 position-relative"
     >
+      <img
+        src="./img/hibiscus.png"
+        alt="Bunga"
+        style={{ top: -75 }}
+        className="position-absolute end-0"
+      />
+      <img
+        src="./img/palm.png"
+        alt="Rumput"
+        style={{ top: "30%" }}
+        className="position-absolute start-0"
+      />
       <Container className="d-flex flex-row justify-content-evenly">
         <Card
-          style={{ marginTop: -75, height: 350, width: 250 }}
+          style={{ marginTop: -75, height: 350, width: 250, zIndex: 2 }}
           className="d-flex flex-column justify-content-center p-3"
         >
           <img
@@ -24,7 +36,7 @@ const Content = () => {
           </p>
         </Card>
         <Card
-          style={{ marginTop: -75, height: 350, width: 250 }}
+          style={{ marginTop: -75, height: 350, width: 250, zIndex: 2 }}
           className="d-flex flex-column justify-content-center p-3"
         >
           <img
@@ -40,7 +52,7 @@ const Content = () => {
           </p>
         </Card>
         <Card
-          style={{ marginTop: -75, height: 350, width: 250 }}
+          style={{ marginTop: -75, height: 350, width: 250, zIndex: 2 }}
           className="d-flex flex-column justify-content-center p-3"
         >
           <img
@@ -56,7 +68,7 @@ const Content = () => {
           </p>
         </Card>
         <Card
-          style={{ marginTop: -75, height: 350, width: 250 }}
+          style={{ marginTop: -75, height: 350, width: 250, zIndex: 2 }}
           className="d-flex flex-column justify-content-center p-3"
         >
           <img
@@ -73,7 +85,7 @@ const Content = () => {
         </Card>
       </Container>
       <Container>
-        <h1 className="text-center my-5">Group Tour</h1>
+        <h1 className="text-center mt-3 py-5">Group Tour</h1>
         <Row>
           <Col lg={4} className="p-3">
             <Card className="d-flex flex-column justify-content-center p-3">
@@ -87,7 +99,7 @@ const Content = () => {
                   style={{ width: 50, height: 30, top: 15 }}
                   className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
                 >
-                  <p className="m-0">12/15</p>
+                  <p className="m-0 fw-bolder">12/15</p>
                 </div>
               </div>
               <Card.Body className="p-0">
@@ -111,7 +123,7 @@ const Content = () => {
                   style={{ width: 50, height: 30, top: 15 }}
                   className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
                 >
-                  <p className="m-0">11/15</p>
+                  <p className="m-0 fw-bolder">11/15</p>
                 </div>
               </div>
               <Card.Body className="p-0">
@@ -135,7 +147,7 @@ const Content = () => {
                   style={{ width: 50, height: 30, top: 15 }}
                   className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
                 >
-                  <p className="m-0">14/15</p>
+                  <p className="m-0 fw-bolder">14/15</p>
                 </div>
               </div>
               <Card.Body className="p-0">
@@ -159,7 +171,7 @@ const Content = () => {
                   style={{ width: 50, height: 30, top: 15 }}
                   className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
                 >
-                  <p className="m-0">10/15</p>
+                  <p className="m-0 fw-bolder">10/15</p>
                 </div>
               </div>
               <Card.Body className="p-0">
@@ -183,7 +195,7 @@ const Content = () => {
                   style={{ width: 50, height: 30, top: 15 }}
                   className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
                 >
-                  <p className="m-0">13/15</p>
+                  <p className="m-0 fw-bolder">13/15</p>
                 </div>
               </div>
               <Card.Body className="p-0">
