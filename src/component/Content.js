@@ -1,7 +1,7 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-const Content = () => {
+const Content = ({ data }) => {
   const navigate = useNavigate();
   return (
     <main
@@ -89,191 +89,49 @@ const Content = () => {
       <Container>
         <h1 className="text-center mt-3 py-5">Group Tour</h1>
         <Row>
-          <Col lg={4} className="p-3">
-            <Card className="d-flex flex-column justify-content-center p-3">
-              <div id="img-group" className="position-relative">
-                <Card.Img
-                  variant="top"
-                  src="./img/card.png"
-                  className="img-fluid"
-                />
-                <div
-                  style={{ width: 50, height: 30, top: 15 }}
-                  className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
-                >
-                  <p className="m-0 fw-bolder">12/15</p>
-                </div>
-              </div>
-              <Card.Body className="p-0">
-                {/* <Link
+          {data.tripDest.map((el, i) => {
+            return (
+              <Col lg={4} className="p-3">
+                <Card className="d-flex flex-column justify-content-center p-3">
+                  <div id="img-group" className="position-relative">
+                    <Card.Img
+                      variant="top"
+                      src={el.pict[0]}
+                      className="img-fluid"
+                    />
+                    <div
+                      style={{ width: 50, height: 30, top: 15 }}
+                      className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
+                    >
+                      <p className="m-0 fw-bolder">{el.rating}</p>
+                    </div>
+                  </div>
+                  <Card.Body className="p-0">
+                    {/* <Link
                   to={"/detail"}
                   style={{ textDecoration: "none" }}
                   className="text-black"
                 > */}
-                <Card.Title
-                  onClick={() => {
-                    navigate("/detail");
-                  }}
-                  style={{ cursor: "pointer" }}
-                >
-                  6D/4N Fun Tassie Vacation ...
-                </Card.Title>
-                {/* </Link> */}
-                <div className="d-flex justify-content-between">
-                  <p className="text-warning mb-0 fw-bolder">Rp 20.000,-</p>
-                  <p className="text-secondary mb-0">Indonesia</p>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col lg={4} className="p-3">
-            <Card className="d-flex flex-column justify-content-center p-3">
-              <div id="img-group" className="position-relative">
-                <Card.Img
-                  variant="top"
-                  src="./img/card.png"
-                  className="img-fluid"
-                />
-                <div
-                  style={{ width: 50, height: 30, top: 15 }}
-                  className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
-                >
-                  <p className="m-0 fw-bolder">12/15</p>
-                </div>
-              </div>
-              <Card.Body className="p-0">
-                {/* <Link
-                  to={"/detail"}
-                  style={{ textDecoration: "none" }}
-                  className="text-black"
-                > */}
-                <Card.Title
-                  onClick={() => {
-                    navigate("/detail");
-                  }}
-                  style={{ cursor: "pointer" }}
-                >
-                  6D/4N Fun Tassie Vacation ...
-                </Card.Title>
-                {/* </Link> */}
-                <div className="d-flex justify-content-between">
-                  <p className="text-warning mb-0 fw-bolder">Rp 20.000,-</p>
-                  <p className="text-secondary mb-0">Indonesia</p>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col lg={4} className="p-3">
-            <Card className="d-flex flex-column justify-content-center p-3">
-              <div id="img-group" className="position-relative">
-                <Card.Img
-                  variant="top"
-                  src="./img/card.png"
-                  className="img-fluid"
-                />
-                <div
-                  style={{ width: 50, height: 30, top: 15 }}
-                  className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
-                >
-                  <p className="m-0 fw-bolder">12/15</p>
-                </div>
-              </div>
-              <Card.Body className="p-0">
-                {/* <Link
-                  to={"/detail"}
-                  style={{ textDecoration: "none" }}
-                  className="text-black"
-                > */}
-                <Card.Title
-                  onClick={() => {
-                    navigate("/detail");
-                  }}
-                  style={{ cursor: "pointer" }}
-                >
-                  6D/4N Fun Tassie Vacation ...
-                </Card.Title>
-                {/* </Link> */}
-                <div className="d-flex justify-content-between">
-                  <p className="text-warning mb-0 fw-bolder">Rp 20.000,-</p>
-                  <p className="text-secondary mb-0">Indonesia</p>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col lg={4} className="p-3">
-            <Card className="d-flex flex-column justify-content-center p-3">
-              <div id="img-group" className="position-relative">
-                <Card.Img
-                  variant="top"
-                  src="./img/card.png"
-                  className="img-fluid"
-                />
-                <div
-                  style={{ width: 50, height: 30, top: 15 }}
-                  className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
-                >
-                  <p className="m-0 fw-bolder">12/15</p>
-                </div>
-              </div>
-              <Card.Body className="p-0">
-                {/* <Link
-                  to={"/detail"}
-                  style={{ textDecoration: "none" }}
-                  className="text-black"
-                > */}
-                <Card.Title
-                  onClick={() => {
-                    navigate("/detail");
-                  }}
-                  style={{ cursor: "pointer" }}
-                >
-                  6D/4N Fun Tassie Vacation ...
-                </Card.Title>
-                {/* </Link> */}
-                <div className="d-flex justify-content-between">
-                  <p className="text-warning mb-0 fw-bolder">Rp 20.000,-</p>
-                  <p className="text-secondary mb-0">Indonesia</p>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col lg={4} className="p-3">
-            <Card className="d-flex flex-column justify-content-center p-3">
-              <div id="img-group" className="position-relative">
-                <Card.Img
-                  variant="top"
-                  src="./img/card.png"
-                  className="img-fluid"
-                />
-                <div
-                  style={{ width: 50, height: 30, top: 15 }}
-                  className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
-                >
-                  <p className="m-0 fw-bolder">12/15</p>
-                </div>
-              </div>
-              <Card.Body className="p-0">
-                {/* <Link
-                  to={"/detail"}
-                  style={{ textDecoration: "none" }}
-                  className="text-black"
-                > */}
-                <Card.Title
-                  onClick={() => {
-                    navigate("/detail");
-                  }}
-                  style={{ cursor: "pointer" }}
-                >
-                  6D/4N Fun Tassie Vacation ...
-                </Card.Title>
-                {/* </Link> */}
-                <div className="d-flex justify-content-between">
-                  <p className="text-warning mb-0 fw-bolder">Rp 20.000,-</p>
-                  <p className="text-secondary mb-0">Indonesia</p>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
+                    <Card.Title
+                      onClick={() => {
+                        navigate(`/detail/${el.id}`);
+                      }}
+                      style={{ cursor: "pointer" }}
+                    >
+                      {el.title}
+                    </Card.Title>
+                    {/* </Link> */}
+                    <div className="d-flex justify-content-between">
+                      <p className="text-warning mb-0 fw-bolder">
+                        Rp {el.price.toLocaleString()},-
+                      </p>
+                      <p className="text-secondary mb-0">{el.location}</p>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            );
+          })}
         </Row>
       </Container>
     </main>

@@ -19,7 +19,7 @@ const Footer = () => {
           width: "7%",
         }}
       >
-        <img src="./img/leaf-footer.png" alt="leaf footer" className="w-100" />
+        <img src="/img/leaf-footer.png" alt="leaf footer" className="w-100" />
       </div>
     </footer>
   );
