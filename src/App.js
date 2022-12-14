@@ -12,9 +12,12 @@ import { useState } from "react";
 import Register from "./component/Register";
 
 function App() {
-  const [data] = useState(dewetourData);
+  const [tripData] = useState(dewetourData);
+  const [userData, setUserData] = useState([]);
   const [loginForm, setLoginForm] = useState(false);
   const [registerForm, setRegisterForm] = useState(false);
+
+  // console.log(userData);
 
   return (
     <>
@@ -24,14 +27,19 @@ function App() {
         setLoginForm={setLoginForm}
         setRegisterForm={setRegisterForm}
       />
-      <Register registerForm={registerForm} setRegisterForm={setRegisterForm} />
+      <Register
+        registerForm={registerForm}
+        setRegisterForm={setRegisterForm}
+        userData={userData}
+        setUserData={setUserData}
+      />
       <Routes>
         <Route
           path="/"
           element={
             <>
               <Header />
-              <Content data={data} />
+              <Content data={tripData} />
             </>
           }
         />
@@ -39,7 +47,7 @@ function App() {
           path="/detail/:idTrip"
           element={
             <>
-              <DetailTrip data={data} />
+              <DetailTrip data={tripData} />
             </>
           }
         />

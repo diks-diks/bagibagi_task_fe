@@ -33,24 +33,14 @@ const Login = ({ loginForm, setLoginForm, setRegisterForm }) => {
 
       <Form className="p-4">
         <Form.Group className="mb-3" controlId="formEmail">
-          <Form.Label htmlFor="email" className="h3 fw-bolder">
-            Email
-          </Form.Label>
-          <Form.Control
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter email"
-          />
+          <Form.Label className="h3 fw-bolder">Email</Form.Label>
+          <Form.Control type="email" name="email" placeholder="Enter email" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formPassword">
-          <Form.Label htmlFor="password" className="h3 fw-bolder">
-            Password
-          </Form.Label>
+          <Form.Label className="h3 fw-bolder">Password</Form.Label>
           <Form.Control
             type="password"
-            id="password"
             name="password"
             placeholder="Password"
           />

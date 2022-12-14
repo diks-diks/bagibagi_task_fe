@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const NavBar = ({ setLoginForm, setRegisterForm }) => {
   const location = useLocation();
-  console.log(location.pathname);
+  // console.log(location.pathname);
   return (
     <Navbar
       bg="dark"

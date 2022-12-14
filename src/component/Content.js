@@ -91,7 +91,7 @@ const Content = ({ data }) => {
         <Row>
           {data.tripDest.map((el, i) => {
             return (
-              <Col lg={4} className="p-3">
+              <Col lg={4} className="p-3" key={i}>
                 <Card className="d-flex flex-column justify-content-center p-3">
                   <div id="img-group" className="position-relative">
                     <Card.Img

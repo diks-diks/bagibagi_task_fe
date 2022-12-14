@@ -1,6 +1,37 @@
+import { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 
-const Register = ({ registerForm, setRegisterForm }) => {
+const Register = ({ registerForm, setRegisterForm, userData, setUserData }) => {
+  const [input, setInput] = useState({
+    fullname: "",
+    email: "",
+    password: "",
+    phone: "",
+    address: "",
+  });
+
+  // fungsi untuk menghandle saat terjadi perubahan pada input form
+  const handleInputChange = (e) => {
+    setInput((prevState) => {
+      return { ...prevState, [e.target.name]: e.target.value };
+    });
+  };
+
+  // fungsi untuk menghandle saat form di-submit
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    setUserData((prevState) => {
+      return [...prevState, input];
+    });
+    setInput({
+      fullname: "",
+      email: "",
+      password: "",
+      phone: "",
+      address: "",
+    });
+  };
+
   return (
     <Modal
       show={registerForm}
@@ -33,65 +64,60 @@ const Register = ({ registerForm, setRegisterForm }) => {
         Register
       </Modal.Title>
 
-      <Form className="p-4">
-        <Form.Group className="mb-3" controlId="formEmail">
-          <Form.Label htmlFor="fullname" className="h3 fw-bolder">
-            Full Name
-          </Form.Label>
+      <Form className="p-4" onSubmit={handleSubmitForm}>
+        <Form.Group className="mb-3" controlId="formFullname">
+          <Form.Label className="h3 fw-bolder">Full Name</Form.Label>
           <Form.Control
             type="text"
-            id="fullname"
             name="fullname"
             placeholder="Enter Full Name"
+            value={input.fullname}
+            onChange={handleInputChange}
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formEmail">
-          <Form.Label htmlFor="email" className="h3 fw-bolder">
-            Email
-          </Form.Label>
+          <Form.Label className="h3 fw-bolder">Email</Form.Label>
           <Form.Control
             type="email"
-            id="email"
             name="email"
             placeholder="Enter email"
+            value={input.email}
+            onChange={handleInputChange}
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formPassword">
-          <Form.Label htmlFor="password" className="h3 fw-bolder">
-            Password
-          </Form.Label>
+          <Form.Label className="h3 fw-bolder">Password</Form.Label>
           <Form.Control
             type="password"
-            id="password"
             name="password"
             placeholder="Password"
+            value={input.password}
+            onChange={handleInputChange}
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formEmail">
-          <Form.Label htmlFor="phone" className="h3 fw-bolder">
-            phone
-          </Form.Label>
+        <Form.Group className="mb-3" controlId="formPhone">
+          <Form.Label className="h3 fw-bolder">phone</Form.Label>
           <Form.Control
-            type="text"
-            id="phone"
+            type="number"
             name="phone"
             placeholder="Enter Your Phone Number"
+            value={input.phone}
+            onChange={handleInputChange}
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formEmail">
-          <Form.Label htmlFor="address" className="h3 fw-bolder">
-            Address
-          </Form.Label>
+        <Form.Group className="mb-3" controlId="formAddress">
+          <Form.Label className="h3 fw-bolder">Address</Form.Label>
           <Form.Control
             as="textarea"
-            id="address"
             name="address"
             placeholder="Enter Your Address"
             style={{ height: "100px" }}
+            onChange={handleInputChange}
+            value={input.address}
           />
         </Form.Group>
 

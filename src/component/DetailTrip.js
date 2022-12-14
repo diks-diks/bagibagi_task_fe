@@ -26,11 +26,11 @@ const DetailTrip = ({ data }) => {
         style={{ top: "30%" }}
         className="position-absolute start-0"
       />
-      {data.tripDest.map((el, id) => {
+      {data.tripDest.map((el, i) => {
         price === null && el.id === idTrip && setPrice(el.price);
         return (
           el.id === idTrip && (
-            <Container>
+            <Container key={i}>
               <h1 className="display-4 fw-bold">{el.title}</h1>
               <h3 className="text-secondary">{el.location}</h3>
               <Row>
