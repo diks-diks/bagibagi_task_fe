@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 
-const Register = ({ registerForm, setRegisterForm, userData, setUserData }) => {
+const Register = ({
+  registerForm,
+  setRegisterForm,
+  setLoginForm,
+  userData,
+  setUserData,
+}) => {
   const [input, setInput] = useState({
     fullname: "",
     email: "",
@@ -159,6 +165,7 @@ const Register = ({ registerForm, setRegisterForm, userData, setUserData }) => {
             },
           ];
         });
+
         setInput({
           fullname: "",
           email: "",
@@ -166,6 +173,9 @@ const Register = ({ registerForm, setRegisterForm, userData, setUserData }) => {
           phone: "",
           address: "",
         });
+
+        setRegisterForm(false);
+        setLoginForm(true);
       }
     }
   };

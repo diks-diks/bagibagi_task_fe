@@ -1,7 +1,7 @@
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 
-const NavBar = ({ setLoginForm, setRegisterForm }) => {
+const NavBar = ({ setLoginForm, setRegisterForm, isLogin }) => {
   const location = useLocation();
   // console.log(location.pathname);
   return (
@@ -45,26 +45,32 @@ const NavBar = ({ setLoginForm, setRegisterForm }) => {
           <img src="/img/Icon.png" alt="Dewe Tour" />
         </Link>
         <Nav className="ms-auto">
-          <Button
-            variant="outline-light"
-            className="mx-2"
-            style={{ width: 150 }}
-            onClick={() => {
-              setLoginForm(true);
-            }}
-          >
-            Login
-          </Button>
-          <Button
-            variant="warning"
-            className="text-white mx-2"
-            style={{ width: 150 }}
-            onClick={() => {
-              setRegisterForm(true);
-            }}
-          >
-            Register
-          </Button>
+          {!isLogin ? (
+            <>
+              <Button
+                variant="outline-light"
+                className="mx-2"
+                style={{ width: 150 }}
+                onClick={() => {
+                  setLoginForm(true);
+                }}
+              >
+                Login
+              </Button>
+              <Button
+                variant="warning"
+                className="text-white mx-2"
+                style={{ width: 150 }}
+                onClick={() => {
+                  setRegisterForm(true);
+                }}
+              >
+                Register
+              </Button>
+            </>
+          ) : (
+            <h1 className="text-white">Hello, Admin</h1>
+          )}
         </Nav>
       </Container>
     </Navbar>

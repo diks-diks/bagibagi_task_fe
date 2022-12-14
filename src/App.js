@@ -16,20 +16,28 @@ function App() {
   const [userData, setUserData] = useState([]);
   const [loginForm, setLoginForm] = useState(false);
   const [registerForm, setRegisterForm] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
   // console.log(userData);
 
   return (
     <>
-      <NavBar setLoginForm={setLoginForm} setRegisterForm={setRegisterForm} />
+      <NavBar
+        setLoginForm={setLoginForm}
+        setRegisterForm={setRegisterForm}
+        isLogin={isLogin}
+      />
       <Login
         loginForm={loginForm}
         setLoginForm={setLoginForm}
         setRegisterForm={setRegisterForm}
+        setIsLogin={setIsLogin}
+        userData={userData}
       />
       <Register
         registerForm={registerForm}
         setRegisterForm={setRegisterForm}
+        setLoginForm={setLoginForm}
         userData={userData}
         setUserData={setUserData}
       />

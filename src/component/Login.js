@@ -1,6 +1,49 @@
+import { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 
-const Login = ({ loginForm, setLoginForm, setRegisterForm }) => {
+const Login = ({
+  loginForm,
+  setLoginForm,
+  setRegisterForm,
+  setIsLogin,
+  userData,
+}) => {
+  const [input, setInput] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (e) => {
+    setInput((prevState) => {
+      return { ...prevState, [e.target.name]: e.target.value };
+    });
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    let user = userData.filter((el) => {
+      return el.email === input.email.trim();
+    });
+
+    // console.log(user);
+
+    if (user.length > 0) {
+      if (user[0].password === input.password.trim()) {
+        setIsLogin(true);
+        setInput({
+          email: "",
+          password: "",
+        });
+        setLoginForm(false);
+      } else {
+        alert("Wrong password !");
+      }
+    } else {
+      alert("User not found !");
+    }
+  };
+
   return (
     <Modal
       show={loginForm}
@@ -31,10 +74,16 @@ const Login = ({ loginForm, setLoginForm, setRegisterForm }) => {
       />
       <Modal.Title className="display-5 fw-bold mx-auto p-4">Login</Modal.Title>
 
-      <Form className="p-4">
+      <Form className="p-4" onSubmit={handleLogin}>
         <Form.Group className="mb-3" controlId="formEmail">
           <Form.Label className="h3 fw-bolder">Email</Form.Label>
-          <Form.Control type="email" name="email" placeholder="Enter email" />
+          <Form.Control
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            onChange={handleInputChange}
+            value={input.email}
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formPassword">
@@ -43,6 +92,8 @@ const Login = ({ loginForm, setLoginForm, setRegisterForm }) => {
             type="password"
             name="password"
             placeholder="Password"
+            onChange={handleInputChange}
+            value={input.password}
           />
         </Form.Group>
 
