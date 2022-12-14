@@ -1,13 +1,18 @@
 import { Row, Col, Container, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { BsPlusLg, BsDashLg } from "react-icons/bs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const DetailTrip = ({ data }) => {
   const idTrip = useParams().idTrip;
 
   const [counter, setCounter] = useState(1);
   const [price, setPrice] = useState(null);
+  const [totalPrice, setTotalPrice] = useState(null);
+
+  useEffect(() => {
+    setTotalPrice(price * counter);
+  }, [price, counter]);
 
   return (
     <main
@@ -189,7 +194,7 @@ const DetailTrip = ({ data }) => {
                 </div>
                 <div>
                   <h1 className="d-inline-block text-warning fw-bold">
-                    IDR. {(price * counter).toLocaleString()}
+                    IDR. {totalPrice?.toLocaleString()}
                   </h1>
                 </div>
               </div>
