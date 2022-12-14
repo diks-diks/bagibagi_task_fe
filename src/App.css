@@ -5,3 +5,11 @@ html {
   padding: 0;
   margin: 0;
 }
+
+button#dropdown-profile.dropdown-toggle.btn.btn-primary::after {
+  display: none !important;
+}
+
+.dropdown-profile-item:hover {
+  background-color: gainsboro;
+}

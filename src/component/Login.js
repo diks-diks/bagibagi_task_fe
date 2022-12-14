@@ -1,13 +1,7 @@
 import { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 
-const Login = ({
-  loginForm,
-  setLoginForm,
-  setRegisterForm,
-  setIsLogin,
-  userData,
-}) => {
+const Login = ({ loginForm, setLoginForm, setRegisterForm, userData }) => {
   const [input, setInput] = useState({
     email: "",
     password: "",
@@ -30,7 +24,16 @@ const Login = ({
 
     if (user.length > 0) {
       if (user[0].password === input.password.trim()) {
-        setIsLogin(true);
+        localStorage.setItem("isLogin", true);
+        localStorage.setItem(
+          "loginUser",
+          JSON.stringify({
+            fullname: user[0].fullname,
+            email: user[0].email,
+            phone: user[0].phone,
+            address: user[0].address,
+          })
+        );
         setInput({
           email: "",
           password: "",

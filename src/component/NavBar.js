@@ -1,7 +1,8 @@
-import { Container, Nav, Navbar, Button } from "react-bootstrap";
+import { Container, Nav, Navbar, Button, Image } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
+import DropdownProfile from "./DropdownProfile";
 
-const NavBar = ({ setLoginForm, setRegisterForm, isLogin }) => {
+const NavBar = ({ setLoginForm, setRegisterForm }) => {
   const location = useLocation();
   // console.log(location.pathname);
   return (
@@ -45,7 +46,7 @@ const NavBar = ({ setLoginForm, setRegisterForm, isLogin }) => {
           <img src="/img/Icon.png" alt="Dewe Tour" />
         </Link>
         <Nav className="ms-auto">
-          {!isLogin ? (
+          {!localStorage.getItem("isLogin") ? (
             <>
               <Button
                 variant="outline-light"
@@ -69,7 +70,9 @@ const NavBar = ({ setLoginForm, setRegisterForm, isLogin }) => {
               </Button>
             </>
           ) : (
-            <h1 className="text-white">Hello, Admin</h1>
+            <DropdownProfile>
+              <Image src="/img/agent.png" roundedCircle />
+            </DropdownProfile>
           )}
         </Nav>
       </Container>

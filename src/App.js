@@ -13,25 +13,27 @@ import Register from "./component/Register";
 
 function App() {
   const [tripData] = useState(dewetourData);
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState([
+    {
+      fullname: "Ahmad Sidik Rudini",
+      email: "sidik@mail.com",
+      password: "Admin123",
+      phone: "087711356758",
+      address: "Kota Bogor",
+    },
+  ]);
   const [loginForm, setLoginForm] = useState(false);
   const [registerForm, setRegisterForm] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
 
   // console.log(userData);
 
   return (
     <>
-      <NavBar
-        setLoginForm={setLoginForm}
-        setRegisterForm={setRegisterForm}
-        isLogin={isLogin}
-      />
+      <NavBar setLoginForm={setLoginForm} setRegisterForm={setRegisterForm} />
       <Login
         loginForm={loginForm}
         setLoginForm={setLoginForm}
         setRegisterForm={setRegisterForm}
-        setIsLogin={setIsLogin}
         userData={userData}
       />
       <Register
