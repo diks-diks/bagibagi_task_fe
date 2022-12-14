@@ -20,7 +20,7 @@ const Register = ({ registerForm, setRegisterForm, userData, setUserData }) => {
   // fungsi untuk menghandle saat terjadi perubahan pada input form
   const handleInputChange = (e) => {
     setInput((prevState) => {
-      return { ...prevState, [e.target.name]: e.target.value.trim() };
+      return { ...prevState, [e.target.name]: e.target.value };
     });
   };
 
@@ -29,16 +29,10 @@ const Register = ({ registerForm, setRegisterForm, userData, setUserData }) => {
     e.preventDefault();
 
     // Validasi Fullname
-    if (input.fullname === "") {
+    let fullname = input.fullname.trim();
+    if (fullname === "") {
       setError((prevState) => {
         return { ...prevState, fullname: "Fullname must be fill !" };
-      });
-    } else if (/\W/.test(input.fullname)) {
-      setError((prevState) => {
-        return {
-          ...prevState,
-          fullname: "Only accept alphanumeric character !",
-        };
       });
     } else {
       setError((prevState) => {
@@ -50,21 +44,30 @@ const Register = ({ registerForm, setRegisterForm, userData, setUserData }) => {
     }
 
     // Validasi Email
-    if (input.email === "") {
+    let email = input.email.trim();
+    if (email === "") {
       setError((prevState) => {
         return { ...prevState, email: "Email must be fill !" };
+      });
+    } else {
+      setError((prevState) => {
+        return {
+          ...prevState,
+          email: "",
+        };
       });
     }
 
     // Validasi Password
-    if (input.password === "") {
+    let password = input.password.trim();
+    if (password === "") {
       setError((prevState) => {
         return {
           ...prevState,
           password: "Password harus diisi !",
         };
       });
-    } else if (/[A-Z]/.test(input.password) === false) {
+    } else if (/[A-Z]/.test(password) === false) {
       setError((prevState) => {
         return {
           ...prevState,
@@ -72,7 +75,7 @@ const Register = ({ registerForm, setRegisterForm, userData, setUserData }) => {
             "Password harus berupa kombinasi huruf besar, huruf kecil, dan angka !",
         };
       });
-    } else if (/[a-z]/.test(input.password) === false) {
+    } else if (/[a-z]/.test(password) === false) {
       setError((prevState) => {
         return {
           ...prevState,
@@ -80,27 +83,50 @@ const Register = ({ registerForm, setRegisterForm, userData, setUserData }) => {
             "Password harus berupa kombinasi huruf besar, huruf kecil, dan angka !",
         };
       });
-    } else if (/[0-9]/.test(input.password) === false) {
+    } else if (/[0-9]/.test(password) === false) {
       setError((prevState) => {
         return {
           ...prevState,
           password:
             "Password harus berupa kombinasi huruf besar, huruf kecil, dan angka !",
+        };
+      });
+    } else {
+      setError((prevState) => {
+        return {
+          ...prevState,
+          password: "",
         };
       });
     }
 
     // Validasi Phone
-    if (input.phone === "") {
+    let phone = input.phone.trim();
+    if (phone === "") {
       setError((prevState) => {
         return { ...prevState, phone: "Phone must be fill !" };
+      });
+    } else {
+      setError((prevState) => {
+        return {
+          ...prevState,
+          phone: "",
+        };
       });
     }
 
     // Validasi Address
-    if (input.address === "") {
+    let address = input.address.trim();
+    if (address === "") {
       setError((prevState) => {
         return { ...prevState, address: "Address must be fill !" };
+      });
+    } else {
+      setError((prevState) => {
+        return {
+          ...prevState,
+          address: "",
+        };
       });
     }
 
@@ -116,13 +142,22 @@ const Register = ({ registerForm, setRegisterForm, userData, setUserData }) => {
     ) {
       if (
         userData.some((item) => {
-          return item.email === input.email;
+          return item.email === email;
         })
       ) {
         alert("Email sudah digunakan, silahkan login !");
       } else {
         setUserData((prevState) => {
-          return [...prevState, input];
+          return [
+            ...prevState,
+            {
+              fullname,
+              email,
+              password,
+              phone,
+              address,
+            },
+          ];
         });
         setInput({
           fullname: "",
