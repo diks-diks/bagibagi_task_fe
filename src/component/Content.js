@@ -118,7 +118,9 @@ const Content = ({ data }) => {
                       }}
                       style={{ cursor: "pointer" }}
                     >
-                      {el.title}
+                      {el.title.length > 27
+                        ? `${el.title.slice(0, 26)} . . .`
+                        : el.title}
                     </Card.Title>
                     {/* </Link> */}
                     <div className="d-flex justify-content-between">
