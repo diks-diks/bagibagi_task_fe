@@ -155,16 +155,38 @@ const Payment = ({ userData, tripData, order, setOrder }) => {
                       <h5 className="text-secondary">{trip.location}</h5>
                     </div>
                     <div className="pb-5">
-                      <Alert
-                        variant={
-                          ordr.status === "Waiting Payment"
-                            ? "danger"
-                            : "warning"
-                        }
-                        className="d-inline-block p-1 px-3"
-                      >
-                        {ordr.status}
-                      </Alert>
+                      {ordr.status === "new" && (
+                        <Alert
+                          variant="danger"
+                          className="d-inline-block p-1 px-3"
+                        >
+                          Waiting Payment
+                        </Alert>
+                      )}
+                      {ordr.status === "pending" && (
+                        <Alert
+                          variant="warning"
+                          className="d-inline-block p-1 px-3"
+                        >
+                          Waiting Approve
+                        </Alert>
+                      )}
+                      {ordr.status === "approve" && (
+                        <Alert
+                          variant="success"
+                          className="d-inline-block p-1 px-3"
+                        >
+                          Approve
+                        </Alert>
+                      )}
+                      {ordr.status === "cancel" && (
+                        <Alert
+                          variant="danger"
+                          className="d-inline-block p-1 px-3"
+                        >
+                          Payment receipt rejected
+                        </Alert>
+                      )}
                     </div>
                   </Col>
                   <Col lg={4}>
@@ -291,7 +313,7 @@ const Payment = ({ userData, tripData, order, setOrder }) => {
               </Card>
               <div
                 className={`d-flex justify-content-end ${
-                  ordr.status !== "Waiting Payment" && "d-none"
+                  ordr.status !== "new" && ordr.status !== "cancel" && "d-none"
                 }`}
               >
                 <Button
