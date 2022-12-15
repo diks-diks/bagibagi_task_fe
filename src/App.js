@@ -7,23 +7,18 @@ import Footer from "./component/Footer";
 import Content from "./component/Content";
 import DetailTrip from "./component/DetailTrip";
 import Login from "./component/Login";
-import dewetourData from "./DummyData";
 import { useState } from "react";
 import Register from "./component/Register";
+import Payment from "./component/Payment";
+import PrivateRoute from "./component/PrivateRoute";
+import { trip, user, orderData } from "./DummyData";
 
 function App() {
-  const [tripData] = useState(dewetourData);
-  const [userData, setUserData] = useState([
-    {
-      fullname: "Ahmad Sidik Rudini",
-      email: "sidik@mail.com",
-      password: "Admin123",
-      phone: "087711356758",
-      address: "Kota Bogor",
-    },
-  ]);
+  const [tripData] = useState(trip);
+  const [userData, setUserData] = useState(user);
   const [loginForm, setLoginForm] = useState(false);
   const [registerForm, setRegisterForm] = useState(false);
+  const [order, setOrder] = useState(orderData);
 
   // console.log(userData);
 
@@ -49,7 +44,7 @@ function App() {
           element={
             <>
               <Header />
-              <Content data={tripData} />
+              <Content tripData={tripData} />
             </>
           }
         />
@@ -57,10 +52,24 @@ function App() {
           path="/detail/:idTrip"
           element={
             <>
-              <DetailTrip data={tripData} />
+              <DetailTrip tripData={tripData} />
             </>
           }
         />
+        <Route element={<PrivateRoute />}>
+          <Route
+            path="/payment"
+            element={
+              <>
+                <Payment
+                  userData={userData}
+                  tripData={tripData}
+                  order={order}
+                />
+              </>
+            }
+          />
+        </Route>
       </Routes>
       <Footer />
     </>

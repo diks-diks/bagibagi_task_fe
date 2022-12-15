@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { BsPlusLg, BsDashLg } from "react-icons/bs";
 import { useEffect, useState } from "react";
 
-const DetailTrip = ({ data }) => {
+const DetailTrip = ({ tripData }) => {
   const idTrip = useParams().idTrip;
 
   const [counter, setCounter] = useState(1);
@@ -31,10 +31,10 @@ const DetailTrip = ({ data }) => {
         style={{ top: "30%" }}
         className="position-absolute start-0"
       />
-      {data.tripDest.map((el, i) => {
-        price === null && el.id === idTrip && setPrice(el.price);
+      {tripData.map((el, i) => {
+        price === null && el.tripId === parseInt(idTrip) && setPrice(el.price);
         return (
-          el.id === idTrip && (
+          el.tripId === parseInt(idTrip) && (
             <Container key={i}>
               <h1 className="display-4 fw-bold">{el.title}</h1>
               <h3 className="text-secondary">{el.location}</h3>

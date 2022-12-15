@@ -10,7 +10,8 @@ const Footer = () => {
           className="text-center text-white p-0 m-0"
           style={{ fontSize: 18, fontWeight: "400" }}
         >
-          Copyright &copy; 2020 Dewe Tour - Your Name - NIS. All Rights reserved
+          Copyright &copy; 2022 Dewe Tour - Ahmad Sidik Rudini - B42. All Rights
+          reserved
         </p>
       </div>
       <div

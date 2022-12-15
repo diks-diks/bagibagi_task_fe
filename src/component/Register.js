@@ -16,11 +16,11 @@ const Register = ({
     address: "",
   });
   const [error, setError] = useState({
-    fullname: "",
-    email: "",
-    password: "",
-    phone: "",
-    address: "",
+    fullname: " ",
+    email: " ",
+    password: " ",
+    phone: " ",
+    address: " ",
   });
 
   // fungsi untuk menghandle saat terjadi perubahan pada input form
@@ -33,6 +33,8 @@ const Register = ({
   // fungsi untuk menghandle saat form di-submit
   const handleSubmitForm = (e) => {
     e.preventDefault();
+
+    let userId = new Date().getTime();
 
     // Validasi Fullname
     let fullname = input.fullname.trim();
@@ -157,6 +159,7 @@ const Register = ({
           return [
             ...prevState,
             {
+              userId,
               fullname,
               email,
               password,
@@ -172,6 +175,14 @@ const Register = ({
           password: "",
           phone: "",
           address: "",
+        });
+
+        setError({
+          fullname: " ",
+          email: " ",
+          password: " ",
+          phone: " ",
+          address: " ",
         });
 
         setRegisterForm(false);

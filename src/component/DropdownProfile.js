@@ -5,7 +5,7 @@ const DropdownProfile = (props) => {
   const navigate = useNavigate();
 
   return (
-    <Dropdown className="position-relative">
+    <Dropdown className="position-relative" autoClose>
       <Dropdown.Toggle
         style={{ backgroundColor: "transparent", border: "none" }}
         id="dropdown-profile"
@@ -33,12 +33,26 @@ const DropdownProfile = (props) => {
             <div
               className="px-3 py-2 d-flex flex-row justify-content-start align-items-center dropdown-profile-item"
               style={{ cursor: "pointer" }}
+              onClick={() => {
+                navigate("/payment");
+
+                let drtoggle = document.getElementById("dropdown-profile");
+                drtoggle.click();
+              }}
             >
               <Image src="/img/bill.png" className="me-3" />
               <h5 className="m-0">Pay</h5>
             </div>
           </Col>
           <Col lg={12}>
+            <hr
+              style={{
+                height: 2,
+                backgroundColor: "gray",
+                border: "none",
+                opacity: "25%",
+              }}
+            />
             <div
               className="px-3 py-2 d-flex flex-row justify-content-start align-items-center dropdown-profile-item"
               style={{ cursor: "pointer" }}

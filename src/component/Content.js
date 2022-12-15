@@ -1,7 +1,7 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-const Content = ({ data }) => {
+const Content = ({ tripData }) => {
   const navigate = useNavigate();
   return (
     <main
@@ -89,7 +89,7 @@ const Content = ({ data }) => {
       <Container>
         <h1 className="text-center mt-3 py-5">Group Tour</h1>
         <Row>
-          {data.tripDest.map((el, i) => {
+          {tripData.map((el, i) => {
             return (
               <Col lg={4} className="p-3" key={i}>
                 <Card className="d-flex flex-column justify-content-center p-3">
@@ -114,7 +114,7 @@ const Content = ({ data }) => {
                 > */}
                     <Card.Title
                       onClick={() => {
-                        navigate(`/detail/${el.id}`);
+                        navigate(`/detail/${el.tripId}`);
                       }}
                       style={{ cursor: "pointer" }}
                     >

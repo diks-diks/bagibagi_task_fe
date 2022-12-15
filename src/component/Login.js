@@ -25,15 +25,7 @@ const Login = ({ loginForm, setLoginForm, setRegisterForm, userData }) => {
     if (user.length > 0) {
       if (user[0].password === input.password.trim()) {
         localStorage.setItem("isLogin", true);
-        localStorage.setItem(
-          "loginUser",
-          JSON.stringify({
-            fullname: user[0].fullname,
-            email: user[0].email,
-            phone: user[0].phone,
-            address: user[0].address,
-          })
-        );
+        localStorage.setItem("loginUser", user[0].userId);
         setInput({
           email: "",
           password: "",
