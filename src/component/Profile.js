@@ -57,7 +57,7 @@ const Profile = ({ order, tripData, userData, setUserData }) => {
       className="py-5 position-relative"
     >
       <Container>
-        <Card className="w-75 mx-auto px-4 py-2">
+        <Card className="w-75 mx-auto px-4 py-3">
           <Row>
             <Col lg={7}>
               <h1>Personal Info</h1>
@@ -92,7 +92,7 @@ const Profile = ({ order, tripData, userData, setUserData }) => {
                 </div>
               </div>
             </Col>
-            <Col lg={5}>
+            <Col lg={5} className="pt-3">
               <Form.Control
                 id="uploadImage"
                 type="file"

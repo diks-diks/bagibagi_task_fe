@@ -29,7 +29,11 @@ function App() {
 
   return (
     <>
-      <NavBar setLoginForm={setLoginForm} setRegisterForm={setRegisterForm} />
+      <NavBar
+        setLoginForm={setLoginForm}
+        setRegisterForm={setRegisterForm}
+        userData={userData}
+      />
       <Login
         loginForm={loginForm}
         setLoginForm={setLoginForm}

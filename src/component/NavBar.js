@@ -2,7 +2,7 @@ import { Container, Nav, Navbar, Button, Image } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import DropdownProfile from "./DropdownProfile";
 
-const NavBar = ({ setLoginForm, setRegisterForm }) => {
+const NavBar = ({ setLoginForm, setRegisterForm, userData }) => {
   const location = useLocation();
   // console.log(location.pathname);
   return (
@@ -70,7 +70,7 @@ const NavBar = ({ setLoginForm, setRegisterForm }) => {
               </Button>
             </>
           ) : (
-            <DropdownProfile>
+            <DropdownProfile userData={userData}>
               <Image src="/img/agent.png" roundedCircle />
             </DropdownProfile>
           )}
