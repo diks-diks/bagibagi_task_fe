@@ -24,6 +24,12 @@ const DropdownProfile = (props) => {
             <div
               className="px-3 py-2 d-flex flex-row justify-content-start align-items-center dropdown-profile-item"
               style={{ cursor: "pointer" }}
+              onClick={() => {
+                navigate("/profile");
+
+                let drtoggle = document.getElementById("dropdown-profile");
+                drtoggle.click();
+              }}
             >
               <Image src="/img/user.png" className="me-3" />
               <h5 className="m-0">Profile</h5>
