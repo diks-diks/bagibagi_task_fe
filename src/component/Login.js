@@ -23,7 +23,7 @@ const Login = ({ loginForm, setLoginForm, setRegisterForm, userData }) => {
     // console.log(user);
 
     if (user.length > 0) {
-      if (user[0].password === input.password.trim()) {
+      if (user[0].password === input.password) {
         localStorage.setItem("isLogin", true);
         localStorage.setItem("loginUser", user[0].userId);
         setInput({

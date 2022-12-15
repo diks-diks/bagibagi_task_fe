@@ -178,6 +178,7 @@ export const orderData = [
     status: "Waiting Payment",
     qty: 2,
     totalPrice: 9800000,
+    img: "",
   },
   {
     orderId: "trx2",
@@ -187,6 +188,7 @@ export const orderData = [
     status: "Waiting Payment",
     qty: 1,
     totalPrice: 4900000,
+    img: "",
   },
   {
     orderId: "trx3",
@@ -196,6 +198,7 @@ export const orderData = [
     status: "Waiting Payment",
     qty: 1,
     totalPrice: 3500000,
+    img: "",
   },
   {
     orderId: "trx4",
@@ -205,6 +208,7 @@ export const orderData = [
     status: "Waiting Payment",
     qty: 1,
     totalPrice: 3500000,
+    img: "",
   },
   {
     orderId: "trx5",
@@ -214,6 +218,7 @@ export const orderData = [
     status: "Waiting Approve",
     qty: 1,
     totalPrice: 8000000,
+    img: "/img/receipt.png",
   },
   {
     orderId: "trx6",
@@ -223,5 +228,6 @@ export const orderData = [
     status: "Waiting Approve",
     qty: 1,
     totalPrice: 5000000,
+    img: "/img/receipt.png",
   },
 ];

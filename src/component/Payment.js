@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Alert,
   Button,
@@ -6,9 +8,37 @@ import {
   Container,
   Image,
   Row,
+  Form,
+  Modal,
 } from "react-bootstrap";
 
 const Payment = ({ userData, tripData, order, setOrder }) => {
+  const [img, setImg] = useState("");
+  const [popup, setPopup] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleUploadImage = (e) => {
+    // mengambil file yang diupload pada input file
+    let filesImg = e.target.files;
+
+    // Cek file upload apakah ada ? apakah formatnya sesuai (jpeg/png) ?
+    if (filesImg.length > 0) {
+      if (
+        filesImg[0].type === "image/png" ||
+        filesImg[0].type === "image/jpeg" ||
+        filesImg[0].type === "image/jpg"
+      ) {
+        // jika semua syarat terpenuhi, buatlah urlnya lalu simpan di object dengan key img
+        let imgUrl = URL.createObjectURL(filesImg[0]);
+
+        setImg((prevState) => {
+          return { ...prevState, [e.target.name]: imgUrl };
+        });
+      }
+    }
+  };
+
   const handleUpdateOrder = (orderId) => {
     // mengambil nilai index dari order yang ingin diupdate
     let indexOfOrderData = order.findIndex((ordr) => ordr.orderId === orderId);
@@ -20,9 +50,20 @@ const Payment = ({ userData, tripData, order, setOrder }) => {
 
     // mengupdate status pada order tersebut
     newOrder[indexOfOrderData].status = "Waiting Approve";
+    img[orderId]
+      ? (newOrder[indexOfOrderData].img = img[orderId])
+      : alert("Please upload image !");
 
-    // kirim data array order yang sudah diupdate ke state order
-    setOrder(newOrder);
+    if (
+      newOrder[indexOfOrderData].status !== "Waiting Payment" &&
+      newOrder[indexOfOrderData].img !== ""
+    ) {
+      // kirim data array order yang sudah diupdate ke state order
+      setOrder(newOrder);
+
+      // tampilkan popup
+      setPopup(true);
+    }
   };
 
   return (
@@ -30,6 +71,44 @@ const Payment = ({ userData, tripData, order, setOrder }) => {
       style={{ backgroundColor: "#E5E5E5", marginTop: 100, marginBottom: 54 }}
       className="py-5 position-relative"
     >
+      <Modal
+        show={popup}
+        centered
+        backdrop="static"
+        onHide={() => {
+          setPopup(false);
+        }}
+        style={{
+          display: "block",
+          position: "fixed",
+          top: "0",
+          width: "100%",
+          height: "100vh",
+          backgroundColor: "rgba(0,0,0,0.5)",
+        }}
+        className="rounded-0"
+      >
+        <Modal.Body>
+          <p className="text-center">
+            Your payment will be confirmed within 2 x 24 hours
+          </p>
+          <p className="text-center">
+            To see orders click{" "}
+            <u
+              className="fw-bold text-underline"
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                navigate("/payment");
+                setPopup(false);
+              }}
+            >
+              Here
+            </u>{" "}
+            thank you
+          </p>
+        </Modal.Body>
+      </Modal>
+
       {order.map((ordr) => {
         let trip = tripData?.filter((trip) => {
           return trip.tripId === ordr.tripId;
@@ -112,13 +191,31 @@ const Payment = ({ userData, tripData, order, setOrder }) => {
                       </Col>
                     </Row>
                   </Col>
-                  <Col lg={3} className="d-flex flex-column align-items-center">
-                    <Image
-                      src="/img/receipt.png"
-                      alt="receipt"
-                      // fluid
-                      className="border border-dark border-3 w-75"
-                    />
+                  <Col
+                    lg={3}
+                    className="d-flex flex-column align-items-center justify-content-center"
+                  >
+                    {ordr.img ? (
+                      <Image
+                        src={ordr.img}
+                        alt="receipt"
+                        className="border border-dark border-3 w-75"
+                      />
+                    ) : img[ordr.orderId] ? (
+                      <Image
+                        src={img[ordr.orderId]}
+                        alt="receipt"
+                        className="border border-dark border-3 w-75"
+                      />
+                    ) : (
+                      <Form.Control
+                        type="file"
+                        size="xs"
+                        name={ordr.orderId}
+                        className="mt-5"
+                        onChange={handleUploadImage}
+                      />
+                    )}
                     <small className="text-secondary mt-2">
                       Upload payment proof
                     </small>
