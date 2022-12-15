@@ -20,7 +20,9 @@ function App() {
   const [registerForm, setRegisterForm] = useState(false);
   const [order, setOrder] = useState(orderData);
 
+  // console.log(tripData);
   // console.log(userData);
+  // console.log(order);
 
   return (
     <>
@@ -52,7 +54,7 @@ function App() {
           path="/detail/:idTrip"
           element={
             <>
-              <DetailTrip tripData={tripData} />
+              <DetailTrip tripData={tripData} setOrder={setOrder} />
             </>
           }
         />
@@ -65,6 +67,7 @@ function App() {
                   userData={userData}
                   tripData={tripData}
                   order={order}
+                  setOrder={setOrder}
                 />
               </>
             }

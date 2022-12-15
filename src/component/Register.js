@@ -12,13 +12,16 @@ const Register = ({
     fullname: "",
     email: "",
     password: "",
+    gender: "",
     phone: "",
     address: "",
+    role: "",
   });
   const [error, setError] = useState({
     fullname: " ",
     email: " ",
     password: " ",
+    gender: " ",
     phone: " ",
     address: " ",
   });
@@ -108,6 +111,21 @@ const Register = ({
       });
     }
 
+    // Validasi Gender
+    let gender = input.gender;
+    if (gender === "") {
+      setError((prevState) => {
+        return { ...prevState, gender: "Gender must be choosed !" };
+      });
+    } else {
+      setError((prevState) => {
+        return {
+          ...prevState,
+          gender: "",
+        };
+      });
+    }
+
     // Validasi Phone
     let phone = input.phone.trim();
     if (phone === "") {
@@ -138,6 +156,8 @@ const Register = ({
       });
     }
 
+    let role = "user";
+
     // console.log(input);
     // console.log(error);
 
@@ -163,8 +183,10 @@ const Register = ({
               fullname,
               email,
               password,
+              gender,
               phone,
               address,
+              role,
             },
           ];
         });
@@ -173,14 +195,17 @@ const Register = ({
           fullname: "",
           email: "",
           password: "",
+          gender: "",
           phone: "",
           address: "",
+          role: "",
         });
 
         setError({
           fullname: " ",
           email: " ",
           password: " ",
+          gender: " ",
           phone: " ",
           address: " ",
         });
@@ -266,8 +291,24 @@ const Register = ({
           )}
         </Form.Group>
 
+        <Form.Group className="mb-3" controlId="formGender">
+          <Form.Label className="h3 fw-bolder">Gender</Form.Label>
+          <Form.Select
+            value={input.gender}
+            name="gender"
+            onChange={handleInputChange}
+          >
+            <option value="">Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </Form.Select>
+          {error.gender && (
+            <Form.Text className="text-danger">{error.gender}</Form.Text>
+          )}
+        </Form.Group>
+
         <Form.Group className="mb-3" controlId="formPhone">
-          <Form.Label className="h3 fw-bolder">phone</Form.Label>
+          <Form.Label className="h3 fw-bolder">Phone</Form.Label>
           <Form.Control
             type="number"
             name="phone"

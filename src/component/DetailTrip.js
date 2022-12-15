@@ -1,18 +1,69 @@
 import { Row, Col, Container, Button } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BsPlusLg, BsDashLg } from "react-icons/bs";
 import { useEffect, useState } from "react";
 
-const DetailTrip = ({ tripData }) => {
+const DetailTrip = ({ tripData, setOrder }) => {
   const idTrip = useParams().idTrip;
+  const navigate = useNavigate();
 
-  const [counter, setCounter] = useState(1);
+  const [qty, setQty] = useState(1);
   const [price, setPrice] = useState(null);
   const [totalPrice, setTotalPrice] = useState(null);
 
   useEffect(() => {
-    setTotalPrice(price * counter);
-  }, [price, counter]);
+    setTotalPrice(price * qty);
+  }, [price, qty]);
+
+  const handleTambahOrder = () => {
+    let orderId = new Date().getTime();
+
+    let date = new Date();
+
+    let day = [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ];
+
+    let month = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    let bookDate = `${day[date.getDay()]}, ${date.getDate()} ${
+      month[date.getMonth()]
+    } ${date.getFullYear()}`;
+
+    setOrder((prevState) => {
+      return [
+        ...prevState,
+        {
+          orderId: `trx${orderId}`,
+          userId: parseInt(localStorage.getItem("loginUser")),
+          tripId: parseInt(idTrip),
+          bookingDate: bookDate,
+          status: "Waiting Payment",
+          qty: qty,
+          totalPrice: totalPrice,
+        },
+      ];
+    });
+  };
 
   return (
     <main
@@ -153,14 +204,14 @@ const DetailTrip = ({ tripData }) => {
                   <h1 className="d-inline-block text-black">&nbsp;/ Person</h1>
                 </div>
                 <div
-                  id="counter"
+                  id="qty"
                   className="d-flex justify-content-center align-items-center"
                 >
                   <Button
                     variant="warning"
                     className="text-white rounded-4 fs-3 d-flex flex-column p-2"
                     onClick={() => {
-                      setCounter((prevState) => {
+                      setQty((prevState) => {
                         return prevState > 1 ? prevState - 1 : 1;
                       });
                     }}
@@ -171,13 +222,13 @@ const DetailTrip = ({ tripData }) => {
                     className="d-inline-block text-center"
                     style={{ width: 150 }}
                   >
-                    {counter}
+                    {qty}
                   </h1>
                   <Button
                     variant="warning"
                     className="text-white rounded-4 fs-3 d-flex flex-column p-2"
                     onClick={() => {
-                      setCounter((prevState) => {
+                      setQty((prevState) => {
                         return prevState + 1;
                       });
                     }}
@@ -203,6 +254,10 @@ const DetailTrip = ({ tripData }) => {
                 <Button
                   variant="warning"
                   className="text-white fs-3 fw-bolder rounded-3 px-5"
+                  onClick={() => {
+                    handleTambahOrder();
+                    navigate("/payment");
+                  }}
                 >
                   BOOK NOW
                 </Button>

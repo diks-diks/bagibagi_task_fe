@@ -171,7 +171,7 @@ export const trip = [
 
 export const orderData = [
   {
-    orderId: 1,
+    orderId: "trx1",
     userId: 1,
     tripId: 1,
     bookingDate: "Thursday, 15 Desember 2022",
@@ -180,7 +180,7 @@ export const orderData = [
     totalPrice: 9800000,
   },
   {
-    orderId: 2,
+    orderId: "trx2",
     userId: 2,
     tripId: 1,
     bookingDate: "Thursday, 15 Desember 2022",
@@ -189,7 +189,7 @@ export const orderData = [
     totalPrice: 4900000,
   },
   {
-    orderId: 3,
+    orderId: "trx3",
     userId: 1,
     tripId: 2,
     bookingDate: "Thursday, 15 Desember 2022",
@@ -198,7 +198,7 @@ export const orderData = [
     totalPrice: 3500000,
   },
   {
-    orderId: 4,
+    orderId: "trx4",
     userId: 2,
     tripId: 2,
     bookingDate: "Thursday, 15 Desember 2022",
@@ -207,7 +207,7 @@ export const orderData = [
     totalPrice: 3500000,
   },
   {
-    orderId: 5,
+    orderId: "trx5",
     userId: 1,
     tripId: 5,
     bookingDate: "Thursday, 15 Desember 2022",
@@ -216,7 +216,7 @@ export const orderData = [
     totalPrice: 8000000,
   },
   {
-    orderId: 6,
+    orderId: "trx6",
     userId: 2,
     tripId: 6,
     bookingDate: "Thursday, 15 Desember 2022",

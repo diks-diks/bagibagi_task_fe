@@ -8,7 +8,23 @@ import {
   Row,
 } from "react-bootstrap";
 
-const Payment = ({ userData, tripData, order }) => {
+const Payment = ({ userData, tripData, order, setOrder }) => {
+  const handleUpdateOrder = (orderId) => {
+    // mengambil nilai index dari order yang ingin diupdate
+    let indexOfOrderData = order.findIndex((ordr) => ordr.orderId === orderId);
+    // console.log(indexOfOrderData);
+
+    // menyalin seluruh arr order
+    let newOrder = [...order];
+    // console.log(newOrder);
+
+    // mengupdate status pada order tersebut
+    newOrder[indexOfOrderData].status = "Waiting Approve";
+
+    // kirim data array order yang sudah diupdate ke state order
+    setOrder(newOrder);
+  };
+
   return (
     <main
       style={{ backgroundColor: "#E5E5E5", marginTop: 100, marginBottom: 54 }}
@@ -185,6 +201,9 @@ const Payment = ({ userData, tripData, order }) => {
                   variant="warning"
                   className="text-white m-3 fs-5 fw-bold"
                   style={{ width: 200 }}
+                  onClick={() => {
+                    handleUpdateOrder(ordr.orderId);
+                  }}
                 >
                   PAY
                 </Button>
