@@ -8,6 +8,7 @@ export const user = [
     phone: "123123123123",
     address: "Kota Bogor",
     role: "user",
+    img: "/img/profile.png",
   },
   {
     userId: 2,
@@ -18,6 +19,7 @@ export const user = [
     phone: "08800880088",
     address: "Kota Bogor",
     role: "user",
+    img: "",
   },
   {
     userId: 3,
@@ -28,6 +30,7 @@ export const user = [
     phone: "08800880088",
     address: "Kota Bogor",
     role: "admin",
+    img: "",
   },
 ];
 
@@ -171,7 +174,7 @@ export const trip = [
 
 export const orderData = [
   {
-    orderId: "trx1",
+    orderId: "trx00001",
     userId: 1,
     tripId: 1,
     bookingDate: "Thursday, 15 Desember 2022",
@@ -181,7 +184,7 @@ export const orderData = [
     img: "",
   },
   {
-    orderId: "trx2",
+    orderId: "trx00002",
     userId: 2,
     tripId: 1,
     bookingDate: "Thursday, 15 Desember 2022",
@@ -191,7 +194,7 @@ export const orderData = [
     img: "",
   },
   {
-    orderId: "trx3",
+    orderId: "trx00003",
     userId: 1,
     tripId: 2,
     bookingDate: "Thursday, 15 Desember 2022",
@@ -201,7 +204,7 @@ export const orderData = [
     img: "",
   },
   {
-    orderId: "trx4",
+    orderId: "trx00004",
     userId: 2,
     tripId: 2,
     bookingDate: "Thursday, 15 Desember 2022",
@@ -211,7 +214,7 @@ export const orderData = [
     img: "",
   },
   {
-    orderId: "trx5",
+    orderId: "trx00005",
     userId: 1,
     tripId: 5,
     bookingDate: "Thursday, 15 Desember 2022",
@@ -221,11 +224,31 @@ export const orderData = [
     img: "/img/receipt.png",
   },
   {
-    orderId: "trx6",
+    orderId: "trx00006",
     userId: 2,
     tripId: 6,
     bookingDate: "Thursday, 15 Desember 2022",
     status: "pending",
+    qty: 1,
+    totalPrice: 5000000,
+    img: "/img/receipt.png",
+  },
+  {
+    orderId: "trx00007",
+    userId: 2,
+    tripId: 5,
+    bookingDate: "Thursday, 15 Desember 2022",
+    status: "approve",
+    qty: 1,
+    totalPrice: 8000000,
+    img: "/img/receipt.png",
+  },
+  {
+    orderId: "trx00008",
+    userId: 1,
+    tripId: 6,
+    bookingDate: "Thursday, 15 Desember 2022",
+    status: "approve",
     qty: 1,
     totalPrice: 5000000,
     img: "/img/receipt.png",

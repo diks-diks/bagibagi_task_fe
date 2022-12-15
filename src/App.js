@@ -12,6 +12,7 @@ import Register from "./component/Register";
 import Payment from "./component/Payment";
 import PrivateRoute from "./component/PrivateRoute";
 import { trip, user, orderData } from "./DummyData";
+import Profile from "./component/Profile";
 
 function App() {
   const [tripData] = useState(trip);
@@ -62,14 +63,23 @@ function App() {
           <Route
             path="/payment"
             element={
-              <>
-                <Payment
-                  userData={userData}
-                  tripData={tripData}
-                  order={order}
-                  setOrder={setOrder}
-                />
-              </>
+              <Payment
+                userData={userData}
+                tripData={tripData}
+                order={order}
+                setOrder={setOrder}
+              />
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <Profile
+                userData={userData}
+                tripData={tripData}
+                order={order}
+                setUserData={setUserData}
+              />
             }
           />
         </Route>

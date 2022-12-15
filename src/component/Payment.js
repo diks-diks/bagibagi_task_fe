@@ -11,6 +11,7 @@ import {
   Form,
   Modal,
 } from "react-bootstrap";
+import { BiImageAdd } from "react-icons/bi";
 
 const Payment = ({ userData, tripData, order, setOrder }) => {
   const [img, setImg] = useState("");
@@ -122,7 +123,7 @@ const Payment = ({ userData, tripData, order, setOrder }) => {
 
         return (
           ordr.userId === parseInt(localStorage.getItem("loginUser")) &&
-          ordr.status !== "Approve" && (
+          ordr.status !== "approve" && (
             <Container className="mb-5" key={ordr.orderId}>
               <Card
                 className="bg-white py-3"
@@ -217,6 +218,14 @@ const Payment = ({ userData, tripData, order, setOrder }) => {
                     lg={3}
                     className="d-flex flex-column align-items-center justify-content-center"
                   >
+                    <Form.Control
+                      id="uploadImage"
+                      type="file"
+                      size="xs"
+                      name={ordr.orderId}
+                      className="mt-5 d-none"
+                      onChange={handleUploadImage}
+                    />
                     {ordr.img ? (
                       <Image
                         src={ordr.img}
@@ -230,12 +239,12 @@ const Payment = ({ userData, tripData, order, setOrder }) => {
                         className="border border-dark border-3 w-75"
                       />
                     ) : (
-                      <Form.Control
-                        type="file"
-                        size="xs"
-                        name={ordr.orderId}
-                        className="mt-5"
-                        onChange={handleUploadImage}
+                      <BiImageAdd
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          document.getElementById("uploadImage").click();
+                        }}
+                        className="display-1"
                       />
                     )}
                     <small className="text-secondary mt-2">
