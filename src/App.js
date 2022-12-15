@@ -13,6 +13,8 @@ import Payment from "./component/Payment";
 import PrivateRoute from "./component/PrivateRoute";
 import { trip, user, orderData } from "./DummyData";
 import Profile from "./component/Profile";
+import ListTransaction from "./component/ListTransaction";
+import AdminPrivateRoute from "./component/AdminPrivateRoute";
 
 function App() {
   const [tripData] = useState(trip);
@@ -79,6 +81,18 @@ function App() {
                 tripData={tripData}
                 order={order}
                 setUserData={setUserData}
+              />
+            }
+          />
+        </Route>
+        <Route element={<AdminPrivateRoute userData={userData} />}>
+          <Route
+            path="/transactions"
+            element={
+              <ListTransaction
+                order={order}
+                userData={userData}
+                tripData={tripData}
               />
             }
           />
