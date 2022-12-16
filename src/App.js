@@ -15,6 +15,7 @@ import { trip, user, orderData } from "./DummyData";
 import Profile from "./component/Profile";
 import ListTransaction from "./component/ListTransaction";
 import AdminPrivateRoute from "./component/AdminPrivateRoute";
+import IncomeTrip from "./component/IncomeTrip";
 
 function App() {
   const [tripData] = useState(trip);
@@ -94,6 +95,17 @@ function App() {
             path="/transactions"
             element={
               <ListTransaction
+                order={order}
+                userData={userData}
+                tripData={tripData}
+                setOrder={setOrder}
+              />
+            }
+          />
+          <Route
+            path="/trip"
+            element={
+              <IncomeTrip
                 order={order}
                 userData={userData}
                 tripData={tripData}
