@@ -16,9 +16,10 @@ import Profile from "./component/Profile";
 import ListTransaction from "./component/ListTransaction";
 import AdminPrivateRoute from "./component/AdminPrivateRoute";
 import IncomeTrip from "./component/IncomeTrip";
+import AddTrip from "./component/AddTrip";
 
 function App() {
-  const [tripData] = useState(trip);
+  const [tripData, setTripData] = useState(trip);
   const [userData, setUserData] = useState(user);
   const [loginForm, setLoginForm] = useState(false);
   const [registerForm, setRegisterForm] = useState(false);
@@ -112,6 +113,10 @@ function App() {
                 setOrder={setOrder}
               />
             }
+          />
+          <Route
+            path="/addtrip"
+            element={<AddTrip tripData={tripData} setTripData={setTripData} />}
           />
         </Route>
       </Routes>

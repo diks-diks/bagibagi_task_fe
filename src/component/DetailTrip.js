@@ -57,7 +57,7 @@ const DetailTrip = ({ tripData, setOrder }) => {
           userId: parseInt(localStorage.getItem("loginUser")),
           tripId: parseInt(idTrip),
           bookingDate: bookDate,
-          status: "Waiting Payment",
+          status: "new",
           qty: qty,
           totalPrice: totalPrice,
         },
@@ -88,7 +88,7 @@ const DetailTrip = ({ tripData, setOrder }) => {
           el.tripId === parseInt(idTrip) && (
             <Container key={i}>
               <h1 className="display-4 fw-bold">{el.title}</h1>
-              <h3 className="text-secondary">{el.location}</h3>
+              <h3 className="text-secondary">{el.country}</h3>
               <Row>
                 <Col xs={12} className="py-2">
                   <img

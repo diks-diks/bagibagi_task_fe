@@ -28,6 +28,9 @@ const IncomeTrip = ({ tripData }) => {
           <Button
             variant="warning"
             className="text-light fw-bold py-0 px-5 fs-5"
+            onClick={() => {
+              navigate("/addtrip");
+            }}
           >
             Add Trip
           </Button>
@@ -71,7 +74,7 @@ const IncomeTrip = ({ tripData }) => {
                       <p className="text-warning mb-0 fw-bolder">
                         Rp {el.price.toLocaleString()},-
                       </p>
-                      <p className="text-secondary mb-0">{el.location}</p>
+                      <p className="text-secondary mb-0">{el.country}</p>
                     </div>
                   </Card.Body>
                 </Card>

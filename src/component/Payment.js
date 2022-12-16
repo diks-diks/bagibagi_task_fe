@@ -155,7 +155,7 @@ const Payment = ({ userData, tripData, order, setOrder }) => {
                   >
                     <div>
                       <h2>{trip.title}</h2>
-                      <h5 className="text-secondary">{trip.location}</h5>
+                      <h5 className="text-secondary">{trip.country}</h5>
                     </div>
                     <div className="pb-5">
                       {ordr.status === "new" && (

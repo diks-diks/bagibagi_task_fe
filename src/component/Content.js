@@ -127,7 +127,7 @@ const Content = ({ tripData }) => {
                       <p className="text-warning mb-0 fw-bolder">
                         Rp {el.price.toLocaleString()},-
                       </p>
-                      <p className="text-secondary mb-0">{el.location}</p>
+                      <p className="text-secondary mb-0">{el.country}</p>
                     </div>
                   </Card.Body>
                 </Card>

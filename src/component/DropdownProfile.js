@@ -50,7 +50,7 @@ const DropdownProfile = (props) => {
                 className="px-3 py-2 d-flex flex-row justify-content-start align-items-center dropdown-profile-item"
                 style={{ cursor: "pointer" }}
                 onClick={() => {
-                  navigate("/");
+                  navigate("/trip");
                   let drtoggle = document.getElementById("dropdown-profile");
                   drtoggle.click();
                 }}

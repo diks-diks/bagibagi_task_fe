@@ -97,7 +97,7 @@ const Approvement = ({
           <Col lg={5} className="d-flex flex-column justify-content-between">
             <div>
               <h2>{trip.current.title}</h2>
-              <h5 className="text-secondary">{trip.current.location}</h5>
+              <h5 className="text-secondary">{trip.current.country}</h5>
             </div>
             <div className="pb-5">
               {currentOrder.status === "new" && (
