@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const NavBar = ({ setLoginForm, setRegisterForm, userData }) => {
   const [currentUserImg, setCurrentUserImg] = useState("");
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     let user = userData?.filter((user) => {
       return user.userId === parseInt(localStorage.getItem("loginUser"));
