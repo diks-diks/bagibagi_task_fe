@@ -40,7 +40,7 @@ export const trip = [
     title: "4D/3N Labuan Bajo Delight",
     price: 4900000,
     country: "Indonesia",
-    rating: "14/15",
+    quota: 15,
     pict: [
       "/img/card1.jpeg",
       "/img/card2.jpg",
@@ -62,7 +62,7 @@ export const trip = [
     title: "3D2N MOROTAI TOUR PACKAGE D’ALOHA RESORT MOROTAI – MALUKU UTARA",
     price: 3500000,
     country: "Indonesia",
-    rating: "12/15",
+    quota: 15,
     pict: [
       "/img/card4.jpg",
       "/img/card1.jpeg",
@@ -83,7 +83,7 @@ export const trip = [
     title: "6D/5N The Thrill of Mount Kenya",
     price: 10000000,
     country: "Kenya",
-    rating: "11/15",
+    quota: 15,
     pict: [
       "/img/card3.jpg",
       "/img/card4.jpg",
@@ -106,7 +106,7 @@ export const trip = [
     title: "23D/22N Birding Kenya Style",
     price: 25000000,
     country: "Kenya",
-    rating: "13/15",
+    quota: 15,
     pict: [
       "/img/card2.jpg",
       "/img/card3.jpg",
@@ -129,7 +129,7 @@ export const trip = [
     title: "4D/3N Dazzling Rift Valley",
     price: 8000000,
     country: "Kenya",
-    rating: "10/15",
+    quota: 15,
     pict: [
       "/img/card4.jpg",
       "/img/card2.jpg",
@@ -152,7 +152,7 @@ export const trip = [
     title: "2D/1N Universal Studio Singapore",
     price: 5000000,
     country: "Singapore",
-    rating: "12/15",
+    quota: 15,
     pict: [
       "/img/card1.jpeg",
       "/img/card4.jpg",

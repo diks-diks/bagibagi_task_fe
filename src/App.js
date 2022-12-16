@@ -116,7 +116,7 @@ function App() {
           />
           <Route
             path="/addtrip"
-            element={<AddTrip tripData={tripData} setTripData={setTripData} />}
+            element={<AddTrip setTripData={setTripData} />}
           />
         </Route>
       </Routes>

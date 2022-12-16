@@ -103,7 +103,7 @@ const Content = ({ tripData }) => {
                       style={{ width: 50, height: 30, top: 15 }}
                       className="bg-light position-absolute end-0 text-center d-flex flex-column justify-content-center rounded-start"
                     >
-                      <p className="m-0 fw-bolder">{el.rating}</p>
+                      <p className="m-0 fw-bolder">{el.quota}</p>
                     </div>
                   </div>
                   <Card.Body className="p-0">
