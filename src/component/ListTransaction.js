@@ -1,14 +1,52 @@
-import { Container, Table } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Container, Table, Modal, Image } from "react-bootstrap";
 import { HiMagnifyingGlassCircle } from "react-icons/hi2";
+import { useState } from "react";
+import Approvement from "./Approvement";
 
-const ListTransaction = ({ order, userData, tripData }) => {
-  const navigate = useNavigate();
+const ListTransaction = ({ order, userData, tripData, setOrder }) => {
+  const [showApprovement, setShowApprovement] = useState(false);
+  const [showImg, setShowImg] = useState(false);
+  const [currentImgUrl, setCurrentImgUrl] = useState("");
+  const [currentOrder, setCurrentOrder] = useState(null);
+
   return (
     <main
       style={{ backgroundColor: "#E5E5E5", marginTop: 100, marginBottom: 54 }}
       className="py-5 position-relative"
     >
+      {currentOrder && (
+        <Approvement
+          showApprovement={showApprovement}
+          setShowApprovement={setShowApprovement}
+          currentOrder={currentOrder}
+          userData={userData}
+          tripData={tripData}
+          order={order}
+          setOrder={setOrder}
+        />
+      )}
+
+      {/* image modals */}
+      <Modal
+        show={showImg}
+        centered
+        onHide={() => {
+          setShowImg(false);
+        }}
+        style={{
+          display: "block",
+          position: "fixed",
+          top: "0",
+          width: "100%",
+          height: "100vh",
+          backgroundColor: "rgba(0,0,0,0.5)",
+        }}
+        className="rounded-0"
+        dialogClassName="image-modals"
+      >
+        <Image src={currentImgUrl} />
+      </Modal>
+
       <Container>
         <h1>Incoming Transaction</h1>
         <Table striped className="bg-light mt-4">
@@ -25,7 +63,7 @@ const ListTransaction = ({ order, userData, tripData }) => {
           <tbody>
             {order.map((ordr) => {
               return (
-                <tr>
+                <tr key={ordr.orderId}>
                   <td>{ordr.orderId.toUpperCase()}</td>
                   <td>
                     {
@@ -43,9 +81,18 @@ const ListTransaction = ({ order, userData, tripData }) => {
                   </td>
                   <td className="text-center">
                     {ordr.img ? (
-                      <Link to={ordr.img} target="_blank">
-                        {ordr.img.slice(5)}
-                      </Link>
+                      <p
+                        onClick={() => {
+                          setCurrentImgUrl(ordr.img);
+                          setShowImg(true);
+                        }}
+                        style={{
+                          cursor: "pointer",
+                          color: "blue",
+                        }}
+                      >
+                        see image
+                      </p>
                     ) : (
                       "-"
                     )}
@@ -65,37 +112,14 @@ const ListTransaction = ({ order, userData, tripData }) => {
                       className="fs-2 text-primary"
                       style={{ cursor: "pointer" }}
                       onClick={() => {
-                        navigate(`/aprovement/${ordr.orderId}`);
+                        setCurrentOrder(ordr);
+                        setShowApprovement(true);
                       }}
                     />
                   </td>
                 </tr>
               );
             })}
-            {/* <tr>
-              <td>1</td>
-              <td>Sidik Tamvan</td>
-              <td>Labuan Bajo</td>
-              <td>bca.png</td>
-              <td>pending</td>
-              <td>##</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Sidik Tamvan</td>
-              <td>Labuan Bajo</td>
-              <td>bca.png</td>
-              <td>pending</td>
-              <td>##</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Sidik Tamvan</td>
-              <td>Labuan Bajo</td>
-              <td>bca.png</td>
-              <td>pending</td>
-              <td>##</td>
-            </tr> */}
           </tbody>
         </Table>
       </Container>

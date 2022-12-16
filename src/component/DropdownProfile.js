@@ -77,7 +77,7 @@ const DropdownProfile = (props) => {
                   navigate("/");
                 }}
               >
-                <TbLogout class="me-3 fs-3 text-danger" />
+                <TbLogout className="me-3 fs-3 text-danger" />
                 <h5 className="m-0">Logout</h5>
               </div>
             </Col>
@@ -94,7 +94,7 @@ const DropdownProfile = (props) => {
                   drtoggle.click();
                 }}
               >
-                <BsPersonCircle class="me-3 fs-3 text-warning" />
+                <BsPersonCircle className="me-3 fs-3 text-warning" />
                 <h5 className="m-0">Profile</h5>
               </div>
             </Col>
@@ -108,7 +108,7 @@ const DropdownProfile = (props) => {
                   drtoggle.click();
                 }}
               >
-                <TbFileDollar class="me-3 fs-3 text-success" />
+                <TbFileDollar className="me-3 fs-3 text-success" />
                 <h5 className="m-0">Pay</h5>
               </div>
             </Col>
@@ -130,7 +130,7 @@ const DropdownProfile = (props) => {
                   navigate("/");
                 }}
               >
-                <TbLogout class="me-3 fs-3 text-danger" />
+                <TbLogout className="me-3 fs-3 text-danger" />
                 <h5 className="m-0">Logout</h5>
               </div>
             </Col>

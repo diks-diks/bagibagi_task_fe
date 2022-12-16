@@ -13,3 +13,13 @@ button#dropdown-profile.dropdown-toggle.btn.btn-primary::after {
 .dropdown-profile-item:hover {
   background-color: gainsboro;
 }
+
+.approvement-modals {
+  width: 75vw !important;
+  max-width: none !important;
+}
+
+.approvement-modals {
+  max-width: none !important;
+  background-color: transparent !important;
+}

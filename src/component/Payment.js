@@ -20,6 +20,8 @@ const Payment = ({ userData, tripData, order, setOrder }) => {
   const navigate = useNavigate();
 
   const handleUploadImage = (e) => {
+    // console.log(e.target.name);
+
     // mengambil file yang diupload pada input file
     let filesImg = e.target.files;
 
@@ -50,13 +52,13 @@ const Payment = ({ userData, tripData, order, setOrder }) => {
     // console.log(newOrder);
 
     // mengupdate status pada order tersebut
-    newOrder[indexOfOrderData].status = "Waiting Approve";
+    newOrder[indexOfOrderData].status = "pending";
     img[orderId]
       ? (newOrder[indexOfOrderData].img = img[orderId])
       : alert("Please upload image !");
 
     if (
-      newOrder[indexOfOrderData].status !== "Waiting Payment" &&
+      newOrder[indexOfOrderData].status === "pending" &&
       newOrder[indexOfOrderData].img !== ""
     ) {
       // kirim data array order yang sudah diupdate ke state order
@@ -219,7 +221,7 @@ const Payment = ({ userData, tripData, order, setOrder }) => {
                     className="d-flex flex-column align-items-center justify-content-center"
                   >
                     <Form.Control
-                      id="uploadImage"
+                      id={ordr.orderId}
                       type="file"
                       size="xs"
                       name={ordr.orderId}
@@ -242,7 +244,7 @@ const Payment = ({ userData, tripData, order, setOrder }) => {
                       <BiImageAdd
                         style={{ cursor: "pointer" }}
                         onClick={() => {
-                          document.getElementById("uploadImage").click();
+                          document.getElementById(ordr.orderId).click();
                         }}
                         className="display-1"
                       />

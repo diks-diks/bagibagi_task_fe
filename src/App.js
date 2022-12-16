@@ -10,7 +10,7 @@ import Login from "./component/Login";
 import { useState } from "react";
 import Register from "./component/Register";
 import Payment from "./component/Payment";
-import PrivateRoute from "./component/PrivateRoute";
+import UserPrivateRoute from "./component/UserPrivateRoute";
 import { trip, user, orderData } from "./DummyData";
 import Profile from "./component/Profile";
 import ListTransaction from "./component/ListTransaction";
@@ -65,7 +65,7 @@ function App() {
             </>
           }
         />
-        <Route element={<PrivateRoute />}>
+        <Route element={<UserPrivateRoute userData={userData} />}>
           <Route
             path="/payment"
             element={
@@ -97,6 +97,7 @@ function App() {
                 order={order}
                 userData={userData}
                 tripData={tripData}
+                setOrder={setOrder}
               />
             }
           />
