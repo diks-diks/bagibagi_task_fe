@@ -41,7 +41,7 @@ const Profile = ({ order, tripData, userData, setUserData }) => {
     let indexOfUserData = userData.findIndex(
       (user) => user.userId === parseInt(localStorage.getItem("loginUser"))
     );
-    console.log(indexOfUserData);
+    // console.log(indexOfUserData);
 
     // ambil data user, dan update img pada user terkait
     let newUserData = [...userData];

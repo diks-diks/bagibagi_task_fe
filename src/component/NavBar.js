@@ -1,10 +1,22 @@
 import { Container, Nav, Navbar, Button, Image } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import DropdownProfile from "./DropdownProfile";
+import { useEffect, useState } from "react";
 
 const NavBar = ({ setLoginForm, setRegisterForm, userData }) => {
+  const [currentUserImg, setCurrentUserImg] = useState("");
+
+  useEffect(() => {
+    let user = userData?.filter((user) => {
+      return user.userId === parseInt(localStorage.getItem("loginUser"));
+    })[0];
+
+    localStorage.getItem("isLogin") && setCurrentUserImg(user.img);
+  });
+
   const location = useLocation();
   // console.log(location.pathname);
+
   return (
     <Navbar
       bg="dark"
@@ -71,7 +83,27 @@ const NavBar = ({ setLoginForm, setRegisterForm, userData }) => {
             </>
           ) : (
             <DropdownProfile userData={userData}>
-              <Image src="/img/agent.png" roundedCircle />
+              {currentUserImg !== "" ? (
+                <Image
+                  src={currentUserImg}
+                  style={{ width: 75 }}
+                  className="border border-warning"
+                  roundedCircle
+                />
+              ) : (
+                <Image
+                  src="/img/agent.png"
+                  style={{ width: 75 }}
+                  className="border border-warning"
+                  roundedCircle
+                />
+              )}
+              {/* <Image
+                src="/img/agent.png"
+                style={{ width: 75 }}
+                className="border border-warning"
+                roundedCircle
+              /> */}
             </DropdownProfile>
           )}
         </Nav>
